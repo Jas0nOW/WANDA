@@ -1,4 +1,5 @@
 # Wanda-Repo
+**Repo:** [https://github.com/Jas0nOW/WANDA](https://github.com/Jas0nOW/WANDA)
 
 Core orchestration backend for WANDA (providers, OAuth, routing, channels, memory, tools).
 
