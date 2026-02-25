@@ -1,62 +1,66 @@
 <div align="center">
-  <h1>🧠 WANDA Central Hub</h1>
-  <p><strong>The Core Orchestration Engine for the Dezentralized Jannis AI Ecosystem.</strong></p>
-  <a href="https://github.com/Jas0nOW/WANDA">View Repository</a>
+
+# WANDA Central Hub
+
+**Core orchestration backend for the WANDA ecosystem**
+
+[![Status](https://img.shields.io/badge/status-active-brightgreen)](./docs/04_plan/HANDOFF.md)
+[![Node](https://img.shields.io/badge/node-20%2B-green)](./package.json)
+[![Package Manager](https://img.shields.io/badge/pnpm-workspace-orange)](./pnpm-workspace.yaml)
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+
 </div>
 
----
+WANDA is a service-oriented orchestration hub that connects model providers, tool execution (MCP), auth bridges, and persistent memory for the rest of the ecosystem.
 
-WANDA (The Brain & Hands) is a stateless, decentralized microservice-based AI orchestrator built on Node.js/TypeScript. It serves as the intelligent backend handling Model Providers, Tool/Skill Execution via MCP, Routing, and Authentication (OAuth Bridge) for the entire ecosystem (including AERIS, Vox-Voice, and Wanda-Bots). 
+## Core Responsibilities
 
-Unlike a monolithic AI agent, WANDA is designed to run silently in the background (`localhost:3000`), executing commands securely and persisting knowledge globally.
+- Provider routing (Gemini, Anthropic, OpenAI, Ollama)
+- Tool execution through MCP integrations
+- Authentication flows and bridge handling
+- Shared memory and state handoff across products
 
-## 🚀 Key Features
+## Monorepo Structure
 
-- **Microservice Architecture:** Acts as the central hub connecting all other WANDA ecosystem products.
-- **Provider Abstraction:** Unified interface for Gemini, Anthropic, OpenAI, and local Ollama models.
-- **OAuth Identity Bridge:** Implements a true Google OAuth2 flow (Authorization Code Flow + PKCE) for Gemini, completely avoiding API key costs, tailored for Jannis' Google One AI Pro subscription.
-- **MCP Provider (Model Context Protocol):** Exposes up to 18 State-of-the-Art tools (Kraken, Supabase, n8n, Stripe, Jina, ast-grep, Tavily, Context7) natively to connected AI interfaces.
-- **Persistent Global Memory:** Integrated document scrapers and knowledge vaults (via `wanda_remember` protocol) ensure no insights are lost.
+| Path | Purpose |
+| --- | --- |
+| `apps/` | Runtime applications and entry services |
+| `packages/` | Shared packages/utilities |
+| `scripts/` | Debug, validation and operational scripts |
+| `docs/` | Project overview, roadmap, handoff, operations |
+| `data/` | Local runtime data (ignored for production hygiene) |
 
-## ⚙️ Quick Start
-
-### Installation
+## Quick Start
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Typechecking and tests
 pnpm run typecheck
 pnpm run test
-
-# Check authentication status
-pnpm run wanda -- auth status
+pnpm run dev
 ```
 
-### Debug & Validation
+## Operational Commands
 
 ```bash
-# Start bot in debug mode
+pnpm run validate:basics
 pnpm run debug:bot
-
-# Run system check
 pnpm run wanda -- doctor
-
-# Test model connectivity
-pnpm run wanda -- test model "ping"
+pnpm run wanda:auth:status
 ```
 
-*Set `LOG_LEVEL=debug` for detailed runtime insights.*
+## Documentation
 
-## 📚 Technical Documentation
+- [Project Overview](./docs/00_overview/PROJECT.md)
+- [Tasks](./docs/04_plan/TASKS.md)
+- [Milestones](./docs/04_plan/MILESTONES.md)
+- [Handoff](./docs/04_plan/HANDOFF.md)
 
-For deep-dives into the system design, architecture, and current state, refer to the docs:
+## Security and Governance
 
-- [Project Overview](docs/00_overview/PROJECT.md)
-- [Active Tasks](docs/04_plan/TASKS.md)
-- [Milestones & Roadmap](docs/04_plan/MILESTONES.md)
-- [Handoff State](docs/04_plan/HANDOFF.md)
+- Keep `.env` and auth material local only
+- Validate provider/auth status before deployment
+- Run `validate:basics` before merging to main
 
----
-*Built under the JANNIS PROTOCOL — Code Must Be Tested, Efficient, and Secure.*
+## License
+
+MIT. See [LICENSE](./LICENSE).

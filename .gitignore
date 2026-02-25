@@ -5,15 +5,15 @@ node_modules/
 dist/
 *.tsbuildinfo
 
-# Data volume
+# Local data volume
 /data/
 
-# Environment
+# Environment and secrets
 .env
 .env.local
 .env.*.local
 
-# IDE
+# IDE and editors
 .idea/
 .vscode/
 *.swp
@@ -23,7 +23,7 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs and runtime
 *.log
 logs/
 
