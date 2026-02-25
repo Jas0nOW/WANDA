@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# =============================================================================
+# wanda — CLI wrapper (works from any directory)
+# =============================================================================
+
+WANDA_ROOT="/home/jannis/Schreibtisch/Work-OS/40_Products/Wanda-Repo"
+APP_DIR="$WANDA_ROOT/apps/wanda-bot"
+
+# Load .env from project root before running CLI
+set -a
+# shellcheck disable=SC1090
+[ -f "$WANDA_ROOT/.env" ] && source "$WANDA_ROOT/.env"
+[ -f "$APP_DIR/.env" ] && source "$APP_DIR/.env"
+set +a
+
+# Run from project root so dotenv/config can find data dirs
+cd "$WANDA_ROOT"
+
+exec "$WANDA_ROOT/node_modules/.bin/tsx" "$APP_DIR/src/cli.ts" "$@"

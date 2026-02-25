@@ -1,0 +1,26 @@
+services:
+  wanda-bot:
+    build:
+      context: .
+      dockerfile: apps/wanda-bot/Dockerfile
+    container_name: wanda-bot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - wanda-data:/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=50m
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '2'
+
+volumes:
+  wanda-data:
+    driver: local

@@ -1,0 +1,33 @@
+{
+  "name": "wanda",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "pnpm@10.5.2",
+  "scripts": {
+    "dev": "pnpm --filter @wanda/bot dev",
+    "debug:bot": "./scripts/debug_bot.sh",
+    "validate:basics": "./scripts/validate_basics.sh",
+    "wanda": "pnpm --filter @wanda/bot wanda --",
+    "wanda:auth:gemini": "pnpm --filter @wanda/bot auth:login:gemini",
+    "wanda:auth:github": "pnpm --filter @wanda/bot auth:login:github",
+    "wanda:auth:status": "pnpm --filter @wanda/bot auth:status",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "eslint": "^9.18.0",
+    "prettier": "^3.4.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+    "name": "@wanda/bot",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "bin": {
+        "wanda": "./bin/wanda.ts"
+    },
+    "scripts": {
+        "dev": "tsx --watch src/index.ts",
+        "start": "node --import tsx src/index.ts",
+        "cli": "tsx src/cli.ts",
+        "wanda": "tsx src/cli.ts",
+        "auth:login:gemini": "tsx src/cli.ts auth login gemini",
+        "auth:login:github": "tsx src/cli.ts auth login github",
+        "auth:status": "tsx src/cli.ts auth status",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@wanda/shared": "workspace:*",
+        "@wanda/secrets": "workspace:*",
+        "@wanda/core": "workspace:*",
+        "@wanda/channels": "workspace:*",
+        "@wanda/providers": "workspace:*",
+        "@wanda/tools": "workspace:*",
+        "@wanda/memory": "workspace:*",
+        "@wanda/sandbox": "workspace:*",
+        "dotenv": "^16.4.0",
+        "tsx": "^4.19.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.7.0"
+    }
+}

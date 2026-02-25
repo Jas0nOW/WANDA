@@ -1,0 +1,25 @@
+{
+    "name": "@wanda/channels",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run --passWithNoTests"
+    },
+    "dependencies": {
+        "@wanda/shared": "workspace:*",
+        "better-sqlite3": "^11.7.0",
+        "grammy": "^1.35.0",
+        "ws": "^8.19.0"
+    },
+    "devDependencies": {
+        "@types/better-sqlite3": "^7.6.0",
+        "@types/ws": "^8.18.1",
+        "typescript": "^5.7.0",
+        "vitest": "^3.0.0"
+    }
+}
