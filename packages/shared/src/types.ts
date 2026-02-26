@@ -66,6 +66,7 @@ export interface InlineKeyboardButton {
 }
 
 export interface OutboundMessage {
+    readonly platform?: string;
     readonly channelId: string;
     readonly recipientId: string;
     readonly text: string;
