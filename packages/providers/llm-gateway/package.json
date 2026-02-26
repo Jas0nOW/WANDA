@@ -1,5 +1,5 @@
 {
-    "name": "@wanda/memory",
+    "name": "@wanda/llm-gateway",
     "version": "0.1.0",
     "private": true,
     "type": "module",
@@ -7,17 +7,18 @@
         ".": "./src/index.ts"
     },
     "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
         "typecheck": "tsc --noEmit",
         "test": "vitest run --passWithNoTests"
     },
     "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.27.1",
-        "@supabase/supabase-js": "^2.97.0",
         "@wanda/shared": "workspace:*",
-        "better-sqlite3": "^11.7.0"
+        "openai": "^4.50.0",
+        "zod": "^3.24.0"
     },
     "devDependencies": {
-        "@types/better-sqlite3": "^7.6.0",
+        "@types/node": "^22.0.0",
         "typescript": "^5.7.0",
         "vitest": "^3.0.0"
     }

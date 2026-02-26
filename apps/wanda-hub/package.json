@@ -1,0 +1,27 @@
+{
+    "name": "@wanda/hub",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "start": "node build/index.js",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "latest",
+        "@wanda/memory": "workspace:*",
+        "@wanda/shared": "workspace:*",
+        "@wanda/workspace-mcp": "workspace:*",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "pino": "^9.6.0"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.0.0",
+        "typescript": "^5.7.0"
+    }
+}

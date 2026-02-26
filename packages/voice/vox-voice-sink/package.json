@@ -1,5 +1,5 @@
 {
-    "name": "@wanda/memory",
+    "name": "@wanda/vox-voice-sink",
     "version": "0.1.0",
     "private": true,
     "type": "module",
@@ -7,17 +7,19 @@
         ".": "./src/index.ts"
     },
     "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
         "typecheck": "tsc --noEmit",
         "test": "vitest run --passWithNoTests"
     },
     "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.27.1",
-        "@supabase/supabase-js": "^2.97.0",
+        "@wanda/agent-bus": "workspace:*",
         "@wanda/shared": "workspace:*",
-        "better-sqlite3": "^11.7.0"
+        "ws": "^8.18.0"
     },
     "devDependencies": {
-        "@types/better-sqlite3": "^7.6.0",
+        "@types/node": "^22.0.0",
+        "@types/ws": "^8.5.11",
         "typescript": "^5.7.0",
         "vitest": "^3.0.0"
     }
